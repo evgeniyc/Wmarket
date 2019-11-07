@@ -12,9 +12,8 @@ use yii\widgets\DetailView;
 \yii\web\YiiAsset::register($this);
 ?>
 <div class="products-view">
-	<!--<div class="products-img"><?= $model->img ?></div>-->
-	<div class="products-img"><?= Html::img('@web/uploads/simplelogo.png', ['alt' => 'Наш логотип', 'target' => 'Logotip']) ?></div>
+	<div class="products-img"><?= Html::img('@web/uploads/'.$model->img, ['alt' => $model->title]) ?></div>
 	<div class="products-title"><?= Html::encode($model->title) ?></div>
 	<div class="products-price">Цена: <?= $model->price ?> грн.</div>
-	<div class="products-descr"><?= $model->descr ?></div>
+	<div class="products-descr"><?= Html::encode($model->descr) ?></div>
 </div>

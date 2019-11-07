@@ -138,16 +138,23 @@ a.desc:after {
 	border: 1px solid black;
 	margin-bottom: 10px;
 	border-radius: 10px;
-	box-shadow: 2px 2px 5px black;
+	box-shadow: 0 0 5px black;
 }
 .products-descr {
 	display: none;
 }
 .products-title {
 	padding: 5px;
-	
+	font-weight: bold;
+	text-align: center;
+}
+.products-price {
+	color: red;
+	font-weight: bold;
+	text-align: center;
 }
 .products-img img {
 	width:100%;
 	height:auto;
+	border-radius: 10px 10px 0 0;
 }
