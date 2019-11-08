@@ -134,6 +134,10 @@ a.desc:after {
 	
 	color: #ffd301;
 }
+.item {
+	margin: ;
+	padding: 5px;
+}
 .products-view {
 	border: 1px solid black;
 	margin-bottom: 10px;
