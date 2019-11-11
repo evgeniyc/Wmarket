@@ -20,9 +20,9 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= ListView::widget([
         'dataProvider' => $dataProvider,
-        'options' => ['class' => 'list-view row mx-lg-n5'],
+        'options' => ['class' => 'list-view row'],
 		'itemOptions' => [
-			'class' => 'item col-xs-12 col-sm-6 col-md-4 col-lg-3', 
+			'class' => 'item col-xs-12 col-sm-6 col-md-3 col-lg-2', 
 			'id' => 'products-item',
 		],
 		//'itemView' => function ($model, $key, $index, $widget) {

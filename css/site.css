@@ -136,16 +136,19 @@ a.desc:after {
 }
 .item {
 	margin: ;
-	padding: 5px;
+	padding: 5px ;
+	z-index: 1;
 }
 .products-view {
 	border: 1px solid black;
 	margin-bottom: 10px;
 	border-radius: 10px;
 	box-shadow: 0 0 5px black;
+	position: relative;
 }
 .products-descr {
 	display: none;
+	
 }
 .products-title {
 	padding: 5px;
