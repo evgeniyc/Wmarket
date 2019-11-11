@@ -22,7 +22,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'options' => ['class' => 'list-view row align-items-start'],
 		'itemOptions' => [
-			'class' => 'item col-xs-12 col-sm-6 col-md-4 col-lg-3', 
+			'class' => 'item col-xs-12 col-sm-6 col-md-3 col-lg-2', 
 			'id' => 'products-item',
 		],
 		//'itemView' => function ($model, $key, $index, $widget) {

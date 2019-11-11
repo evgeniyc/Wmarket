@@ -35,7 +35,7 @@ class Products extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'descr', 'price'], 'required', 'except' => ['upload']],
+            [['title', 'descr', 'price'], 'required'],
             [['descr'], 'string'],
             [['price'], 'integer'],
             [['title'], 'string', 'max' => 32],
@@ -67,6 +67,7 @@ class Products extends \yii\db\ActiveRecord
         return $this->hasMany(Product::className(), ['prod' => 'id']);
     }
 	
+<<<<<<< HEAD
 	public function upload()
     {
         if ($this->validate('imageFile') && !!$this->imageFile) {
@@ -76,4 +77,21 @@ class Products extends \yii\db\ActiveRecord
             return false;
         }
     }
+=======
+	public function beforeSave($insert)
+	{
+		if (!parent::beforeSave($insert)) {
+			return false;
+		}
+
+		$this->imageFile = UploadedFile::getInstance($this, 'imageFile');
+		if ($this->validate('imageFile')) {
+			if (!!$this->imageFile) {
+				$this->imageFile->saveAs('uploads/' . $this->imageFile->baseName . '.' . $this->imageFile->extension);
+				$this->img = $this->imageFile->baseName . '.' . $this->imageFile->extension;
+			}
+		}
+		return true;
+	}
+>>>>>>> 1965675b9310d855c72df6fa7d15287cd807c656
 }
