@@ -40,7 +40,7 @@ class Products extends \yii\db\ActiveRecord
             [['price'], 'integer'],
             [['title'], 'string', 'max' => 32],
             [['img'], 'string', 'max' => 24],
-			[['imageFile'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg', 'on' => ['upload']],
+			[['imageFile'], 'file', 'extensions' => 'png, jpg'],
         ];
     }
 
@@ -69,7 +69,7 @@ class Products extends \yii\db\ActiveRecord
 	
 	public function upload()
     {
-        if ($this->validate('imageFile')) {
+        if ($this->validate('imageFile') && !!$this->imageFile) {
             $this->imageFile->saveAs('uploads/' . $this->imageFile->baseName . '.' . $this->imageFile->extension);
             return true;
         } else {

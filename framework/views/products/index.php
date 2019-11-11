@@ -20,7 +20,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= ListView::widget([
         'dataProvider' => $dataProvider,
-        'options' => ['class' => 'list-view row'],
+        'options' => ['class' => 'list-view row align-items-start'],
 		'itemOptions' => [
 			'class' => 'item col-xs-12 col-sm-6 col-md-4 col-lg-3', 
 			'id' => 'products-item',
