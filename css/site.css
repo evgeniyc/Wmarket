@@ -148,6 +148,11 @@ a.desc:after {
 }
 .products-descr {
 	display: none;
+	background: white;
+	position: absolute;
+	padding: 5px;
+	border-radius: 5px;
+	
 	
 }
 .products-title {
