@@ -10,7 +10,7 @@ use yii\web\View;
 //$this->params['breadcrumbs'][] = ['label' => 'Products', 'url' => ['index']];
 //$this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
-$this->registerJs( "$('.item').on('click', function() { $(this).css('z-index', 3); $(this).find('.products-descr').slideToggle('slow'); })");
+$this->registerJs( "$('.item').on('click', function() { $(this).css('z-index', 1); $(this).find('.products-descr').slideToggle('slow'); })");
 //$this->registerJs( "$('.products-view').on('click', function() { var css = $(this).css('z-index'); alert('css: '+css)})");
 ?>
 <div class="products-view">

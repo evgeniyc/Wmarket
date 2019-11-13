@@ -53,7 +53,6 @@ class Products extends \yii\db\ActiveRecord
             'id' => 'ID',
             'title' => 'Наименование',
             'descr' => 'Описание',
-            //'img' => 'Изображение',
             'price' => 'Цена',
 			'imageFile' => 'Изображение',
         ];
@@ -67,17 +66,6 @@ class Products extends \yii\db\ActiveRecord
         return $this->hasMany(Product::className(), ['prod' => 'id']);
     }
 	
-<<<<<<< HEAD
-	public function upload()
-    {
-        if ($this->validate('imageFile') && !!$this->imageFile) {
-            $this->imageFile->saveAs('uploads/' . $this->imageFile->baseName . '.' . $this->imageFile->extension);
-            return true;
-        } else {
-            return false;
-        }
-    }
-=======
 	public function beforeSave($insert)
 	{
 		if (!parent::beforeSave($insert)) {
@@ -93,5 +81,4 @@ class Products extends \yii\db\ActiveRecord
 		}
 		return true;
 	}
->>>>>>> 1965675b9310d855c72df6fa7d15287cd807c656
 }
