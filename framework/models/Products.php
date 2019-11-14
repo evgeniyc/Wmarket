@@ -53,7 +53,6 @@ class Products extends \yii\db\ActiveRecord
             'id' => 'ID',
             'title' => 'Наименование',
             'descr' => 'Описание',
-            //'img' => 'Изображение',
             'price' => 'Цена',
 			'imageFile' => 'Изображение',
         ];

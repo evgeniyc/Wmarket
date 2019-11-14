@@ -9,8 +9,12 @@ use yii\web\Controller;
  */
 class DefaultController extends Controller
 {
+<<<<<<< HEAD
     
 	/**
+=======
+    /**
+>>>>>>> eccf0f3a28f6b555e1aed5acec669687ea6da42c
      * Renders the index view for the module
      * @return string
      */
