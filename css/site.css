@@ -159,8 +159,11 @@ a.desc:after {
 	text-align: justify;
 }
 .products-title {
-	padding: 5px;
 	font-weight: bold;
+	text-align: center;
+}
+.products-icons {
+	color: blue;
 	text-align: center;
 }
 .products-price {
