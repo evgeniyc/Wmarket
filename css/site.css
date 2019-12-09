@@ -162,7 +162,7 @@ a.desc:after {
 	font-weight: bold;
 	text-align: center;
 }
-.products-icons {
+.products-icons, .products-icons a {
 	color: blue;
 	text-align: center;
 }
