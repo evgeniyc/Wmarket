@@ -35,7 +35,11 @@ $this->registerJs( "$('.fa-list').attr('title', 'Описание');$('.fa-eye')
 <div class="products-view">
 	<div class="products-img"><?= Html::img('@web/uploads/'.$model->img, ['alt' => $model->title]) ?></div>
 	<div class="products-title"><?= Html::encode($model->title) ?></div>
-	<div class ="products-icons"><?= FAS::icon('list');?>&nbsp;&nbsp;<?=FAS::icon('eye');?>&nbsp;&nbsp;<?=FAS::icon('shopping-basket');?></div>
+	<div class ="products-icons">
+		<?= FAS::icon('list');?>&nbsp;&nbsp;
+		<?=HTML::a(FAS::icon('eye'),['products/view', 'id'=>$model->id]);?>&nbsp;&nbsp;
+		<?=FAS::icon('shopping-basket');?>
+	</div>
 	<div class="products-price">Цена: <?= $model->price ?> грн.</div>
 	<div class="products-descr"><?= Html::encode($model->descr) ?></div>
 </div>

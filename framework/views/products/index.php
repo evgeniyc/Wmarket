@@ -6,23 +6,18 @@ use yii\widgets\ListView;
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Products';
+$this->title = 'Товары';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="products-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>
-        <?= Html::a('Create Products', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
-
-
     <?= ListView::widget([
         'dataProvider' => $dataProvider,
         'options' => ['class' => 'list-view row align-items-start'],
 		'itemOptions' => [
-			'class' => 'item col-xs-12 col-sm-6 col-md-3 col-lg-2', 
+			'class' => 'item col-xs-6 col-sm-6 col-md-3 col-lg-2', 
 			'id' => 'products-item',
 		],
 		//'itemView' => function ($model, $key, $index, $widget) {
