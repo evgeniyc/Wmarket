@@ -18,6 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <div id="product-img"><?=Html::img('@web/uploads/'.$model->img, ['alt' => $model->title])?></div>
 	<div id="product-descr"><span id="descr-descr">Описание:</span><br><?=$model->descr ?></div>
 	<div id="product-price">Цена: <?=$model->price ?>грн.</div>
+	<div id="back-ref"><?= Html::a('Назад', Yii::$app->request->referrer) ?></div>
 	<div class="clearfix"></div>
 	
 </div>
