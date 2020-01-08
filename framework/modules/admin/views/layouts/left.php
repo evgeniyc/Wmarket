@@ -8,7 +8,7 @@
                 <img src="<?= $directoryAsset ?>/img/user2-160x160.jpg" class="img-circle" alt="User Image"/>
             </div>
             <div class="pull-left info">
-                <p>Alexander Pierce</p>
+                <p>Eugene Chepur</p>
 
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
@@ -30,18 +30,19 @@
             [
                 'options' => ['class' => 'sidebar-menu tree', 'data-widget'=> 'tree'],
                 'items' => [
-                    ['label' => 'Menu Yii2', 'options' => ['class' => 'header']],
-                    ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
-                    ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug']],
-                    ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
-                    [
-                        'label' => 'Some tools',
-                        'icon' => 'share',
+                    //['label' => 'Menu Yii2', 'options' => ['class' => 'header']],
+                    //['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
+                    //['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug']],
+                    //['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
+                    ['label' => 'Инструменты:', 'options' => ['class' => 'header']],
+					[
+                        'label' => 'Товары',
+                        'icon' => 'cubes',
                         'url' => '#',
                         'items' => [
-                            ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii'],],
-                            ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug'],],
-                            [
+                            ['label' => 'Список', 'icon' => 'file-code-o', 'url' => ['products/index']],
+							['label' => 'Создать', 'icon' => 'file-code-o', 'url' => ['products/create']],
+                            /*[
                                 'label' => 'Level One',
                                 'icon' => 'circle-o',
                                 'url' => '#',
@@ -57,7 +58,16 @@
                                         ],
                                     ],
                                 ],
-                            ],
+                            ],*/
+                        ],
+                    ],
+					[
+                        'label' => 'Пользователи',
+                        'icon' => 'user',
+                        'url' => '#',
+                        'items' => [
+                            ['label' => 'Список', 'icon' => 'file-code-o', 'url' => ['user/index']],
+							['label' => 'Создать', 'icon' => 'file-code-o', 'url' => ['user/create']],
                         ],
                     ],
                 ],

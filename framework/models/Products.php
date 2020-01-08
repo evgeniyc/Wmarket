@@ -35,8 +35,8 @@ class Products extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'descr', 'price'], 'required'],
-            [['descr'], 'html'],
+            [['title', 'descr', 'price','sdescr'], 'required'],
+            ['sdescr', 'string', 'length' => [48, 480]],
             [['price'], 'integer'],
             [['title'], 'string', 'max' => 32],
             [['img'], 'string', 'max' => 24],
@@ -52,6 +52,7 @@ class Products extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'title' => 'Наименование',
+			'sdescr' => 'Краткое описание',
             'descr' => 'Описание',
             'price' => 'Цена',
 			'imageFile' => 'Изображение',
