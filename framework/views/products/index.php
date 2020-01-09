@@ -13,10 +13,13 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1><?= Html::encode($this->title) ?></h1>
 
+<!--<<<<<< HEAD
     <p>
         <?= Html::a('Создать товар', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
+
+=======-->
 
     <?= ListView::widget([
         'dataProvider' => $dataProvider,

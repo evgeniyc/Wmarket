@@ -167,12 +167,45 @@ a.desc:after {
 	text-align: center;
 }
 .products-price {
-	color: red;
+	color: white;
 	font-weight: bold;
 	text-align: center;
+	text-shadow: 0 0 2px black;
 }
 .products-img img {
 	width:100%;
 	height:auto;
 	border-radius: 10px 10px 0 0;
+}
+#product-img {
+	float: left;
+	padding: 10px;
+	width: 50%;
+}
+#product-img img {
+	width:100%;
+	height:auto;
+	border-radius: 10px;
+}
+#product-descr {
+	float: left;
+	padding: 10px;
+	text-align: justify;
+	width: 50%;
+}
+#descr-descr {
+	color: blue;
+	font-size: 120%;
+	font-weight: bold;
+}
+#product-price {
+	position: relative;
+	color: red;
+	font-size: 120%;
+	font-weight: bold;
+	text-align: center;
+}
+#back-ref {
+	float: left;
+	margin: 10px;
 }
