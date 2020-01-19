@@ -40,8 +40,8 @@
                         'icon' => 'cubes',
                         'url' => '#',
                         'items' => [
-                            ['label' => 'Список', 'icon' => 'file-code-o', 'url' => ['products/index']],
-							['label' => 'Создать', 'icon' => 'file-code-o', 'url' => ['products/create']],
+                            ['label' => 'Список', 'icon' => 'list', 'url' => ['products/index']],
+							['label' => 'Создать', 'icon' => 'plus', 'url' => ['products/create']],
                             /*[
                                 'label' => 'Level One',
                                 'icon' => 'circle-o',
@@ -66,8 +66,8 @@
                         'icon' => 'user',
                         'url' => '#',
                         'items' => [
-                            ['label' => 'Список', 'icon' => 'file-code-o', 'url' => ['user/index']],
-							['label' => 'Создать', 'icon' => 'file-code-o', 'url' => ['user/create']],
+                            ['label' => 'Список', 'icon' => 'list', 'url' => ['user/index']],
+							['label' => 'Создать', 'icon' => 'plus', 'url' => ['user/create']],
                         ],
                     ],
                 ],
