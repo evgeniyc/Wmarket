@@ -147,6 +147,9 @@ a.desc:after {
 	position: relative;
 	z-index: 1;
 }
+.products-view h1 {
+	margin-left: 10px;
+}
 .products-descr {
 	display: none;
 	position: absolute;
