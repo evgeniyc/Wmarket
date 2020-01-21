@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use mihaildev\ckeditor\CKEditor;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Products */
@@ -14,7 +15,14 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'descr')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'sdescr')->textarea(['rows' => 6]) ?>
+	
+	<?= $form->field($model, 'descr')->widget(CKEditor::className(),[
+    'editorOptions' => [
+        'preset' => 'standard', //разработанны стандартные настройки basic, standard, full данную возможность не обязательно использовать
+        'inline' => false, //по умолчанию false
+		],
+	]);?>
 
 	<?= $form->field($model, 'imageFile')->fileInput() ?>
 

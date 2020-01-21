@@ -180,6 +180,14 @@ a.desc:after {
 	height:auto;
 	border-radius: 10px 10px 0 0;
 }
+#product-view {
+	border: 1px solid black;
+	border-radius: 10px;
+	box-shadow: 0 0 5px black;
+}
+#product-view h1 {
+	padding-left: 20px;
+}
 #product-img {
 	float: left;
 	padding: 10px;
@@ -188,13 +196,20 @@ a.desc:after {
 #product-img img {
 	width:100%;
 	height:auto;
+	border: 1px dotted black;
 	border-radius: 10px;
+	box-shadow: 0 0 5px black; 
 }
-#product-descr {
-	float: left;
+#product-descr, #product-sdescr{
 	padding: 10px;
 	text-align: justify;
-	width: 50%;
+	
+}
+#descr-sdescr {
+	color: yellow;
+	font-size: 120%;
+	font-weight: bold;
+	text-shadow: 0 0 2px black;
 }
 #descr-descr {
 	color: blue;

@@ -1,34 +1,43 @@
 <?php
 
 use yii\helpers\Html;
-use yii\widgets\ListView;
+use yii\grid\GridView;
 
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = 'Товары';
-$this->params['breadcrumbs'][] = $this->title;
+$this->params['breadcrumbs'][] = ['label' => 'Товары', 'url' => ['/products']];
 ?>
-<div class="products-index">
+<div class="user-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <p>
-        <?= Html::a('Создать товар', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
-
-
-    <?= ListView::widget([
+    <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'options' => ['class' => 'list-view row align-items-start'],
-		'itemOptions' => [
-			'class' => 'item col-xs-6 col-sm-4 col-md-3 col-lg-2', 
-			'id' => 'products-item',
-		],
-		//'itemView' => function ($model, $key, $index, $widget) {
-        //    return Html::a(Html::encode($model->title), ['view', 'id' => $model->id]);
-		'itemView' => '_view',
-    ]) ?>
+        'columns' => [
+            ['class' => 'yii\grid\SerialColumn'],
 
+            'id',
+            'title',
+            'sdescr',
+            'descr',
+            'price',
+			'img',
+			[                                                 
+				'label' => 'Изображение',
+				'value' => function ($data) {
+					
+					return Html::img('@web/uploads/'.$data->img,[
+						'alt'=>'yii2 - картинка в gridview',
+						'style' => 'width:100px;'
+					]);
+					//return '@web/uploads/'.$data->img; 
+				},
+				'format' => 'raw',
+				
+			],
 
+            ['class' => 'yii\grid\ActionColumn'],
+        ],
+    ]); ?>
+	
 </div>

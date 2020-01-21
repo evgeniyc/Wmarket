@@ -8,6 +8,7 @@ $config = [
 	'name' => 'Евромарт',
 	'language' => 'ru-Ru',
     'basePath' => dirname(__DIR__),
+	'defaultRoute' => 'products',
     'bootstrap' => ['log'],
     'aliases' => [
         '@bower' => '@vendor/bower-asset',

@@ -45,5 +45,5 @@ $this->registerJs( "$('.fa-list').attr('title', 'Описание');$('.fa-eye')
 		<?=FAS::icon('shopping-basket');?>
 	</div>
 	<div class="products-price">Цена: <?= $model->price ?> грн.</div>
-	<div class="products-descr"><?= Html::encode($model->descr) ?></div>
+	<div class="products-descr"><?= Html::encode($model->sdescr) ?></div>
 </div>
