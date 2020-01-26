@@ -7,19 +7,11 @@ use yii\widgets\ListView;
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = 'Товары';
-$this->params['breadcrumbs'][] = $this->title;
+//$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="products-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
-
-<!--<<<<<< HEAD
-    <p>
-        <?= Html::a('Создать товар', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
-
-
-=======-->
 
     <?= ListView::widget([
         'dataProvider' => $dataProvider,

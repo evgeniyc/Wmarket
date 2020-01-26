@@ -227,3 +227,15 @@ a.desc:after {
 	float: left;
 	margin: 10px;
 }
+.active > a {
+	color: red !important;
+}
+.btn-primary > a {
+	color: white;
+}
+#brand-img {
+	position: absolute;
+	top: 7px;
+	left: 65px;
+	z-index: 1031;
+}

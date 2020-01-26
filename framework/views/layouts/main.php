@@ -31,7 +31,7 @@ AppAsset::register($this);
     NavBar::begin([
         'brandLabel' => Yii::$app->name,
         'brandUrl' => Yii::$app->homeUrl,
-        'options' => [
+		'options' => [
 			'id' => 'top-navbar',
             'class' => 'navbar-fixed-top',
         ],
@@ -39,21 +39,31 @@ AppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
-            ['label' => 'Главная', 'url' => ['/products']],
+            ['label' => 'Главная', 'url' => ['/products/index']],
             ['label' => 'О нас', 'url' => ['/site/about']],
             ['label' => 'Контакты', 'url' => ['/site/contact']],
+			//['label' => 'Вход', 'url' => ['/site/login'], 'visible' => Yii::$app->user->isGuest],
+			//['label' => 'Мой кабинет', 'url' => ['/orders/index'], 'visible' => !Yii::$app->user->isGuest],
+			//['label' => 'Выход(' . Yii::$app->user->identity->username . ')', 'url' => ['/site/logout'], 'visible' => !Yii::$app->user->isGuest],
             Yii::$app->user->isGuest ? (
                 ['label' => 'Вход', 'url' => ['/site/login']]
             ) : (
                 '<li>'
-                . Html::beginForm(['/site/logout'], 'post')
+                . Html::beginForm(['/orders/index'], 'post')
+                . Html::submitButton(
+                    'Мой кабинет',
+                    ['class' => 'btn btn-link logout']
+                )
+                . Html::endForm()
+                . '</li><li>'
+				. Html::beginForm(['/site/logout'], 'post')
                 . Html::submitButton(
                     'Выход (' . Yii::$app->user->identity->username . ')',
                     ['class' => 'btn btn-link logout']
                 )
                 . Html::endForm()
                 . '</li>'
-            )
+			)  
         ],
     ]);
     NavBar::end();
@@ -75,7 +85,7 @@ AppAsset::register($this);
        <!-- <p class="pull-right"><?= Yii::powered() ?></p> -->
     </div>
 </footer>
-
+<div id="brand-img"><?= Html::img('@web/uploads/BannerAppL.png')?></div>
 <?php $this->endBody() ?>
 </body>
 </html>
