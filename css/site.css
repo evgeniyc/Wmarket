@@ -223,9 +223,11 @@ a.desc:after {
 	font-weight: bold;
 	text-align: center;
 }
+#order-form {
+	display: inline-block;
+}
 #back-ref {
-	float: left;
-	margin: 10px;
+	display: inline-block;
 }
 .active > a {
 	color: red !important;

@@ -37,8 +37,8 @@ class Orders extends \yii\db\ActiveRecord
             [['user', 'prod', 'quant'], 'integer'],
             [['status'], 'string'],
             //[['date'], 'safe'],
-            //[['prod'], 'exist', 'skipOnError' => true, 'targetClass' => Product::className(), 'targetAttribute' => ['prod' => 'id']],
-            //[['user'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['user' => 'id']],
+            [['product'], 'exist', 'skipOnError' => true, 'targetClass' => Product::className(), 'targetAttribute' => ['prod' => 'id']],
+            [['username'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['user' => 'id']],
         ];
     }
 

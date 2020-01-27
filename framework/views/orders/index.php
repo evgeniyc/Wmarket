@@ -34,7 +34,7 @@ $this->params['breadcrumbs'][] = $this->title;
 			],
             'quant',
             'status',
-            //'date',
+            'date',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
