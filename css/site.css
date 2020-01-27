@@ -216,6 +216,9 @@ a.desc:after {
 	font-size: 120%;
 	font-weight: bold;
 }
+#quant-form {
+	vertical-align: middle;
+}
 #product-price {
 	position: relative;
 	color: red;
@@ -224,6 +227,6 @@ a.desc:after {
 	text-align: center;
 }
 #back-ref {
-	float: left;
 	margin: 10px;
+	clear: both;
 }

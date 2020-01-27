@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Products */
@@ -15,36 +16,18 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-<!--<<<<<< HEAD
-    <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
-                'method' => 'post',
-            ],
-        ]) ?>
-    </p>
 
-    <?= DetailView::widget([
-        'model' => $model,
-        'attributes' => [
-            //'id',
-            //'title',
-            'descr:ntext',
-			[                      
-				'label' => 'Изображение',
-				'value' => Html::img('@web/uploads/'.$model->img, ['alt' => $model->title]),
-			],
-            'price',
-        ],
-    ]) ?>
-
-=======-->
     <div id="product-img"><?=Html::img('@web/uploads/'.$model->img, ['alt' => $model->title])?></div>
 	<div id="product-descr"><span id="descr-descr">Описание:</span><br><?=$model->descr ?></div>
 	<div id="product-price">Цена: <?=$model->price ?>грн.</div>
+	<br>
+	<div id="quant-form">
+		<?php $form = ActiveForm::begin(['options' => ['class' => 'form-inline mb-auto']]); ?>
+			<?= $form->field($order, 'quant') ?>&nbsp;
+			<?= Html::submitButton('Купить', ['class' => 'btn btn-primary mb-2']) ?>
+		<?php ActiveForm::end(); ?>
+	</div>
+	
 	<div id="back-ref"><?= Html::a('Назад', Yii::$app->request->referrer) ?></div>
 	<div class="clearfix"></div>
 	
