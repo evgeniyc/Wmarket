@@ -235,9 +235,11 @@ a.desc:after {
 .btn-primary > a {
 	color: white;
 }
-#brand-img {
-	position: absolute;
-	top: 7px;
-	left: 65px;
+#brandImg {
+	position: relative;
+	display: inline-block;
+	top: -62px;
+	left: 85px;
 	z-index: 1031;
+	margin-bottom: -65px;
 }

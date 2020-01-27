@@ -68,8 +68,8 @@ AppAsset::register($this);
     ]);
     NavBar::end();
     ?>
-
-    <div class="container">
+	<div class="container">
+	<div id="brandImg"><?= Html::img('@web/uploads/BannerAppL.png',['alt' => 'Логотип']) ?></div>
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>
@@ -85,7 +85,6 @@ AppAsset::register($this);
        <!-- <p class="pull-right"><?= Yii::powered() ?></p> -->
     </div>
 </footer>
-<div id="brand-img"><?= Html::img('@web/uploads/BannerAppL.png')?></div>
 <?php $this->endBody() ?>
 </body>
 </html>
