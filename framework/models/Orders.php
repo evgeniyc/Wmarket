@@ -8,11 +8,14 @@ use Yii;
  * This is the model class for table "orders".
  *
  * @property int $id
- * @property int $user
- * @property int $prod
- * @property int $quant
- * @property string $status
- * @property string $date
+ * @property int $user Пользователь
+ * @property int $prod Продукт
+ * @property int $quant Количество
+ * @property string $status Статус
+ * @property string $date Дата
+ *
+ * @property Product $product
+ * @property User $username
  */
 class Orders extends \yii\db\ActiveRecord
 {
@@ -34,6 +37,8 @@ class Orders extends \yii\db\ActiveRecord
             [['user', 'prod', 'quant'], 'integer'],
             [['status'], 'string'],
             [['date'], 'safe'],
+            [['product'], 'exist', 'skipOnError' => true, 'targetClass' => Product::className(), 'targetAttribute' => ['prod' => 'id']],
+            [['username'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['user' => 'id']],
         ];
     }
 
@@ -50,5 +55,32 @@ class Orders extends \yii\db\ActiveRecord
             'status' => 'Статус',
             'date' => 'Дата',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getProduct()
+    {
+        return $this->hasOne(Products::className(), ['id' => 'prod']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getUsername()
+    {
+        return $this->hasOne(User::className(), ['id' => 'user']);
+    }
+	
+	public function beforeSave($insert)
+    {
+        if (parent::beforeSave($insert)) {
+            if ($this->isNewRecord) {
+                $this->date = date('y-m-d H:i:s');
+			}
+            return true;
+        }
+        return false;
     }
 }

@@ -20,7 +20,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'status')->textInput(['maxlength' => true]) ?>
 
+<<<<<<< HEAD
     <?= $form->field($model, 'date')->textInput() ?>
+=======
+    <?= $form->field($model, 'date')->textInput(['maxlength' => true]) ?>
+>>>>>>> 830b0fa56b2e5222cd30bdc6f9347011e1a38209
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

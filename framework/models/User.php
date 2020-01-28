@@ -128,6 +128,8 @@ class User extends ActiveRecord implements IdentityInterface
                 $this->auth_key = \Yii::$app->security->generateRandomString();
 				$this->password = \Yii::$app->getSecurity()->generatePasswordHash($this->password);
             }
+			else if ($this->password)
+				unset($this->password);
             return true;
         }
         return false;

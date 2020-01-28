@@ -37,10 +37,6 @@ $this->registerJs( "$('.fa-list').attr('title', 'Описание');$('.fa-eye')
 	<div class="products-title"><?= Html::encode($model->title) ?></div>
 	<div class ="products-icons">
 		<?= FAS::icon('list');?>&nbsp;&nbsp;
-<!--<<<<<< HEAD
-		<?= Html::a(FAS::icon('eye'), ['products/view', 'id' => $model->id]);?>&nbsp;&nbsp;
-		<?= Html::a(FAS::icon('shopping-basket'), ['products/basket', 'id' => $model->id]);?>
-=======-->
 		<?=HTML::a(FAS::icon('eye'),['products/view', 'id'=>$model->id]);?>&nbsp;&nbsp;
 		<?=FAS::icon('shopping-basket');?>
 	</div>
