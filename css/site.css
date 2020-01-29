@@ -226,11 +226,13 @@ a.desc:after {
 	font-weight: bold;
 	text-align: center;
 }
+#order-form {
+	display: inline-block;
+}
 #back-ref {
-	margin: 10px;
-<<<<<<< HEAD
-	clear: both;
-=======
+
+	display: inline-block;
+
 }
 .active > a {
 	color: red !important;
@@ -238,10 +240,10 @@ a.desc:after {
 .btn-primary > a {
 	color: white;
 }
-#brand-img {
-	position: absolute;
-	top: 7px;
-	left: 65px;
+#brandImg {
+	position: relative;
+	display: inline-block;
+	top: -62px;
+	left: 85px;
 	z-index: 1031;
->>>>>>> 830b0fa56b2e5222cd30bdc6f9347011e1a38209
 }

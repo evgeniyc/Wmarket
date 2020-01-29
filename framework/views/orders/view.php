@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model app\models\Orders */
 
 $this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Orders', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Заказы', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
@@ -30,8 +30,10 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'user',
-            'prod',
+           	[
+				'attribute' => 'prod',
+				'value' => $model->product->title,
+			],
             'quant',
             'status',
             'date',

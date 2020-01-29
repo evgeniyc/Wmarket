@@ -61,12 +61,12 @@ class Products extends \yii\db\ActiveRecord
 
     /**
      * @return \yii\db\ActiveQuery
-     */
+     
     public function getProducts()
     {
         return $this->hasMany(Product::className(), ['prod' => 'id']);
     }
-	
+	*/
 	public function beforeSave($insert)
 	{
 		if (!parent::beforeSave($insert)) {

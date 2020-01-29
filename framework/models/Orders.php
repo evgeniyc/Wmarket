@@ -35,9 +35,10 @@ class Orders extends \yii\db\ActiveRecord
         return [
             [['user', 'prod', 'quant'], 'required'],
             [['user', 'prod', 'quant'], 'integer'],
-            [['status'], 'string'],
-            [['date'], 'safe'],
-            [['product'], 'exist', 'skipOnError' => true, 'targetClass' => Product::className(), 'targetAttribute' => ['prod' => 'id']],
+			[['status'], 'default'],
+            //[['status'], 'string'],
+            [['date'], 'datetime'],
+            [['product'], 'exist', 'skipOnError' => true, 'targetClass' => Products::className(), 'targetAttribute' => ['prod' => 'id']],
             [['username'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['user' => 'id']],
         ];
     }
@@ -78,6 +79,7 @@ class Orders extends \yii\db\ActiveRecord
         if (parent::beforeSave($insert)) {
             if ($this->isNewRecord) {
                 $this->date = date('y-m-d H:i:s');
+				$this->status = 1;
 			}
             return true;
         }

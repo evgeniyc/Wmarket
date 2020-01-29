@@ -45,9 +45,15 @@ AppAsset::register($this);
 			//['label' => 'Вход', 'url' => ['/site/login'], 'visible' => Yii::$app->user->isGuest],
 			//['label' => 'Мой кабинет', 'url' => ['/orders/index'], 'visible' => !Yii::$app->user->isGuest],
 			//['label' => 'Выход(' . Yii::$app->user->identity->username . ')', 'url' => ['/site/logout'], 'visible' => !Yii::$app->user->isGuest],
-            Yii::$app->user->isGuest ? (
-                ['label' => 'Вход', 'url' => ['/site/login']]
-            ) : (
+			['label' => 'Вход', 
+				'url' => ['/site/login'],
+				'visible' => Yii::$app->user->isGuest,
+				],
+			['label' => 'Регистрация', 
+				'url' => ['/user/create'],
+				'visible' => Yii::$app->user->isGuest,
+				],
+		    Yii::$app->user->isGuest ? (''):(
                 '<li>'
                 . Html::beginForm(['/orders/index'], 'post')
                 . Html::submitButton(
@@ -62,14 +68,13 @@ AppAsset::register($this);
                     ['class' => 'btn btn-link logout']
                 )
                 . Html::endForm()
-                . '</li>'
-			)  
-        ],
+                . '</li>')
+		],
     ]);
     NavBar::end();
     ?>
-
-    <div class="container">
+	<div class="container">
+	<div id="brandImg"><?= Html::img('@web/uploads/BannerAppL.png',['alt' => 'Логотип']) ?></div>
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>
@@ -85,7 +90,6 @@ AppAsset::register($this);
        <!-- <p class="pull-right"><?= Yii::powered() ?></p> -->
     </div>
 </footer>
-<div id="brand-img"><?= Html::img('@web/uploads/BannerAppL.png')?></div>
 <?php $this->endBody() ?>
 </body>
 </html>
