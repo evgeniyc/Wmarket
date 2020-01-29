@@ -36,7 +36,7 @@ class OrdersController extends Controller
     public function actionIndex()
     {
         $dataProvider = new ActiveDataProvider([
-             'query' => Orders::find(Yii::$app->user->id),
+             'query' => Orders::find()->where(['user' => Yii::$app->user->id]),
         ]);
 
         return $this->render('index', [

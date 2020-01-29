@@ -139,6 +139,9 @@ a.desc:after {
 	padding: 5px;
 	z-index: 1;
 }
+.products-index {
+	margin-top: -45px;
+}
 .products-view {
 	border: 1px solid black;
 	margin-bottom: 10px;
@@ -246,4 +249,7 @@ a.desc:after {
 	top: -62px;
 	left: 85px;
 	z-index: 1031;
+}
+.breadcrumb {
+	margin-top: -25px;
 }

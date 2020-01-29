@@ -85,7 +85,7 @@ AppAsset::register($this);
 
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; Евромарт <?= date('Y') ?></p>
+        <p class="pull-left"><?= Html::img('@web/uploads/BannerAppL.png',['alt' => 'Логотип']) ?>&copy; Евромарт <?= date('Y') ?></p>
 
        <!-- <p class="pull-right"><?= Yii::powered() ?></p> -->
     </div>
