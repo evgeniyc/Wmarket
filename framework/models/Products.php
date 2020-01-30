@@ -38,6 +38,7 @@ class Products extends \yii\db\ActiveRecord
             [['title', 'descr', 'price','sdescr'], 'required'],
             ['sdescr', 'string', 'length' => [48, 480]],
             [['price'], 'integer'],
+			[['cat'], 'integer'],
             [['title'], 'string', 'max' => 32],
             [['img'], 'string', 'max' => 24],
 			[['imageFile'], 'file', 'extensions' => 'png, jpg'],
