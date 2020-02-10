@@ -11,14 +11,15 @@ body {
 }
 
 .wrap > .container {
-    padding: 70px 15px 20px;
+    padding: 0px 15px 20px;
 }
 
 .footer {
-    height: 60px;
+    height: 48px;
     background-color: #f5f5f5;
     border-top: 1px solid #ddd;
-    padding-top: 20px;
+    padding-top: 5px;
+	box-shadow: 0 0 5px black;
 }
 
 .jumbotron {
@@ -202,11 +203,12 @@ a.desc:after {
 	border: 1px dotted black;
 	border-radius: 10px;
 	box-shadow: 0 0 5px black; 
+	padding-right: 10px;
 }
 #product-descr, #product-sdescr{
 	padding: 10px;
 	text-align: justify;
-	
+	display: inline-block;
 }
 #descr-sdescr {
 	color: yellow;
@@ -218,6 +220,7 @@ a.desc:after {
 	color: blue;
 	font-size: 120%;
 	font-weight: bold;
+	
 }
 #quant-form {
 	vertical-align: middle;
@@ -235,6 +238,7 @@ a.desc:after {
 #back-ref {
 
 	display: inline-block;
+	margin: 10px;
 
 }
 .active > a {
@@ -246,7 +250,7 @@ a.desc:after {
 #brandImg {
 	position: relative;
 	display: inline-block;
-	top: -62px;
+	top: -65px;
 	left: 85px;
 	z-index: 1031;
 }

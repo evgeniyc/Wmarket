@@ -17,7 +17,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <div id="product-img"><?=Html::img('@web/uploads/'.$model->img, ['alt' => $model->title])?></div>
-	<div id="product-descr"><span id="descr-descr">Описание:</span><br><?=$model->descr ?></div>
+	<div id="product-descr"><span id="descr-descr">Описание:</span><br><?=$model->descr ?></div><br>
 	<div id="product-price">Цена: <?=$model->price ?>грн.</div><br>
 	<!--===============================================================================-->
 	<div id="order-form">
