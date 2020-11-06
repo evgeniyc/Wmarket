@@ -28,12 +28,12 @@ $this->params['breadcrumbs'][] = $this->title;
 				'options' => ['class'=>'form-inline'],
 			]);
 				echo $form->errorSummary($order);
-				echo $form->field($order, 'quant',['template' => "{label}\n{hint}\n{input}"])->textInput(['value' => 1, 'placeholder' => 1, 'size' => 3]),'&nbsp';
+				//echo '<div class="form-group">';
+				echo $form->field($order, 'quant',['template' => "{label}\n{hint}\n{input}"])->textInput(['type' => 'number', 'value' => 1, 'min' => 0, 'max' => 40, 'step' => 1, 'size' => 3]),'&nbsp';
 				echo $form->field($order, 'prod',['template' => "{input}"])->hiddenInput(['value' => $model->id]);
 				echo $form->field($order, 'user',['template' => "{input}"])->hiddenInput(['value' => Yii::$app->user->id]);
-				echo '<div class="form-group">';
-					echo Html::submitButton('Купить', ['class' => 'btn btn-success']);
-				echo '</div>';
+				echo Html::submitButton('Купить', ['class' => 'btn btn-success']);
+				//echo '</div>';
 			ActiveForm::end(); 
 		} ?>
 	</div>

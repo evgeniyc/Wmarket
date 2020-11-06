@@ -31,11 +31,21 @@ AppAsset::register($this);
     NavBar::begin([
         'brandLabel' => Yii::$app->name,
         'brandUrl' => Yii::$app->homeUrl,
+		'brandImage' => '@web/uploads/BannerAppL.png',
+		'headerContent' => '<form class="navbar-form navbar-left">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-success">Submit</button>
+      </form>',
 		'options' => [
 			'id' => 'top-navbar',
             'class' => 'sticky-top',
         ],
     ]);
+	//echo Html::img('@web/uploads/BannerAppL.png',['alt' => 'Логотип', 'id' => 'brand-img']); ?>
+	
+	<?php
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
@@ -74,7 +84,7 @@ AppAsset::register($this);
     NavBar::end();
     ?>
 	<div class="container">
-	<div id="brandImg"><?= Html::img('@web/uploads/BannerAppL.png',['alt' => 'Логотип']) ?></div>
+	
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>
