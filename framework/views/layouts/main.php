@@ -31,60 +31,34 @@ AppAsset::register($this);
     NavBar::begin([
         'brandLabel' => Yii::$app->name,
         'brandUrl' => Yii::$app->homeUrl,
-		'brandImage' => '@web/uploads/BannerAppL.png',
-		'headerContent' => '<form class="navbar-form navbar-left">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-        <button type="submit" class="btn btn-success">Submit</button>
-      </form>',
-		'options' => [
-			'id' => 'top-navbar',
-            'class' => 'sticky-top',
+        'options' => [
+            'class' => 'navbar-inverse navbar-fixed-top',
         ],
     ]);
-	//echo Html::img('@web/uploads/BannerAppL.png',['alt' => 'Логотип', 'id' => 'brand-img']); ?>
-	
-	<?php
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
-            ['label' => 'Главная', 'url' => ['/products/index']],
-            ['label' => 'О нас', 'url' => ['/site/about']],
-            ['label' => 'Контакты', 'url' => ['/site/contact']],
-			//['label' => 'Вход', 'url' => ['/site/login'], 'visible' => Yii::$app->user->isGuest],
-			//['label' => 'Мой кабинет', 'url' => ['/orders/index'], 'visible' => !Yii::$app->user->isGuest],
-			//['label' => 'Выход(' . Yii::$app->user->identity->username . ')', 'url' => ['/site/logout'], 'visible' => !Yii::$app->user->isGuest],
-			['label' => 'Вход', 
-				'url' => ['/site/login'],
-				'visible' => Yii::$app->user->isGuest,
-				],
-			['label' => 'Регистрация', 
-				'url' => ['/user/create'],
-				'visible' => Yii::$app->user->isGuest,
-				],
-		    Yii::$app->user->isGuest ? (''):(
+            ['label' => 'Home', 'url' => ['/site/index']],
+            ['label' => 'About', 'url' => ['/site/about']],
+            ['label' => 'Contact', 'url' => ['/site/contact']],
+            Yii::$app->user->isGuest ? (
+                ['label' => 'Login', 'url' => ['/site/login']]
+            ) : (
                 '<li>'
-                . Html::beginForm(['/orders/index'], 'post')
+                . Html::beginForm(['/site/logout'], 'post')
                 . Html::submitButton(
-                    'Мой кабинет',
+                    'Logout (' . Yii::$app->user->identity->username . ')',
                     ['class' => 'btn btn-link logout']
                 )
                 . Html::endForm()
-                . '</li><li>'
-				. Html::beginForm(['/site/logout'], 'post')
-                . Html::submitButton(
-                    'Выход (' . Yii::$app->user->identity->username . ')',
-                    ['class' => 'btn btn-link logout']
-                )
-                . Html::endForm()
-                . '</li>')
-		],
+                . '</li>'
+            )
+        ],
     ]);
     NavBar::end();
     ?>
-	<div class="container">
-	
+
+    <div class="container">
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>
@@ -95,11 +69,12 @@ AppAsset::register($this);
 
 <footer class="footer">
     <div class="container">
-        <p class="pull-left"><?= Html::img('@web/uploads/BannerAppL.png',['alt' => 'Логотип']) ?>&copy; Евромарт <?= date('Y') ?></p>
+        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
 
-       <!-- <p class="pull-right"><?= Yii::powered() ?></p> -->
+        <p class="pull-right"><?= Yii::powered() ?></p>
     </div>
 </footer>
+
 <?php $this->endBody() ?>
 </body>
 </html>

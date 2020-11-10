@@ -5,19 +5,22 @@ $db = require __DIR__ . '/db.php';
 
 $config = [
     'id' => 'basic',
-	'name' => 'Евромарт',
-	'language' => 'ru-Ru',
     'basePath' => dirname(__DIR__),
-	'defaultRoute' => 'products',
     'bootstrap' => ['log'],
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
     ],
+	'modules' => [
+        'admin' => [
+            'class' => 'app\modules\admin\Module',
+			'layout' => 'main',
+        ],
+    ],
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
-            'cookieValidationKey' => 'zqJ4dnx68XDxw66ewzyD07QiHSXDN41r',
+            'cookieValidationKey' => '12345',
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
@@ -54,12 +57,6 @@ $config = [
             ],
         ],
         
-    ],
-	'modules' => [
-        'admin' => [
-            'class' => 'app\modules\admin\Module',
-			'layout' => 'main',
-        ],
     ],
     'params' => $params,
 ];
