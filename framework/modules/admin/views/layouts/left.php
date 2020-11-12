@@ -30,8 +30,15 @@
             [
                 'options' => ['class' => 'sidebar-menu tree', 'data-widget'=> 'tree'],
                 'items' => [
-                    ['label' => 'Menu Yii2', 'options' => ['class' => 'header']],
-                    ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
+                    ['label' => 'Системные инструменты', 'options' => ['class' => 'header']],
+                    [	'label' => 'Пользователи', 
+						'icon' => 'file-code-o', 
+						'url' => ['#'],
+						'items' => [
+                            ['label' => 'Список пользователей', 'icon' => 'file-code-o', 'url' => ['user/index']],
+                            ['label' => 'Добавить пользователя', 'icon' => 'dashboard', 'url' => ['user/create']],
+							['label' => 'Редактировать пользователя', 'icon' => 'dashboard', 'url' => ['user/edit']],
+						]],
                     ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug']],
                     ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
                     [
