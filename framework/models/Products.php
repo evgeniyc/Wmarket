@@ -17,7 +17,8 @@ use Yii;
  */
 class Products extends \yii\db\ActiveRecord
 {
-    /**
+    public $imageFile;
+	/**
      * {@inheritdoc}
      */
     public static function tableName()
@@ -36,6 +37,7 @@ class Products extends \yii\db\ActiveRecord
             [['price', 'cat'], 'integer'],
             [['title'], 'string', 'max' => 64],
             [['img'], 'string', 'max' => 24],
+			[['imageFile'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg'],
         ];
     }
 
@@ -46,12 +48,23 @@ class Products extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'title' => 'Title',
-            'descr' => 'Descr',
-            'img' => 'Img',
-            'price' => 'Price',
-            'sdescr' => 'Sdescr',
-            'cat' => 'Cat',
+            'title' => 'Наименование',
+            'descr' => 'Описание',
+            'img' => 'Имя файла',
+            'price' => 'Цена',
+            'sdescr' => 'Краткое описание',
+            'cat' => 'Категория',
+			'imageFile' => 'Изображение',
         ];
+    }
+	
+	public function upload()
+    {
+        if ($this->validate()) {
+            $this->imageFile->saveAs('uploads/products/' . $this->imageFile->baseName . '.' . $this->imageFile->extension);
+            return true;
+        } else {
+            return false;
+        }
     }
 }
