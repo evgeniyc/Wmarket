@@ -3,7 +3,7 @@
 namespace app\models;
 
 use Yii;
-
+use yii\web\UploadedFile;
 /**
  * This is the model class for table "products".
  *
@@ -37,7 +37,7 @@ class Products extends \yii\db\ActiveRecord
             [['price', 'cat'], 'integer'],
             [['title'], 'string', 'max' => 64],
             [['img'], 'string', 'max' => 24],
-			[['imageFile'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg'],
+			[['imageFile'], 'file', 'extensions' => 'png, jpg'],
         ];
     }
 
@@ -58,13 +58,20 @@ class Products extends \yii\db\ActiveRecord
         ];
     }
 	
-	public function upload()
-    {
-        if ($this->validate()) {
-            $this->imageFile->saveAs('uploads/products/' . $this->imageFile->baseName . '.' . $this->imageFile->extension);
-            return true;
-        } else {
-            return false;
-        }
-    }
+	public function beforeSave($insert)
+	{
+		if (!parent::beforeSave($insert)) {
+			return false;
+		}
+		$this->imageFile = UploadedFile::getInstance($this, 'imageFile');
+		if ($this->validate('imageFile')) {
+				$this->imageFile->saveAs('uploads/products/' . $this->imageFile->baseName . '.' . $this->imageFile->extension);
+				$this->img = $this->imageFile->baseName . '.' . $this->imageFile->extension;
+				return true;
+			} else {
+				return false;
+			}
+		return true;
+	}
+	
 }

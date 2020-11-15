@@ -20,10 +20,13 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= ListView::widget([
         'dataProvider' => $dataProvider,
-        'itemOptions' => ['class' => 'item'],
-        'itemView' => function ($model, $key, $index, $widget) {
+        'itemOptions' => ['class' => 'nogutters col-xs-6 col-sm-4 col-md-3 col-lg-2'],
+        'itemView' => '_view',
+		/*
+		'itemView' => function ($model, $key, $index, $widget) {
             return Html::a(Html::encode($model->title), ['view', 'id' => $model->id]);
         },
+		*/
     ]) ?>
 
 
