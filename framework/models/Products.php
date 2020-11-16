@@ -64,14 +64,31 @@ class Products extends \yii\db\ActiveRecord
 			return false;
 		}
 		$this->imageFile = UploadedFile::getInstance($this, 'imageFile');
-		if ($this->validate('imageFile')) {
+		if (isset($this->imageFile) && $this->validate('imageFile')) {
 				$this->imageFile->saveAs('uploads/products/' . $this->imageFile->baseName . '.' . $this->imageFile->extension);
 				$this->img = $this->imageFile->baseName . '.' . $this->imageFile->extension;
-				return true;
-			} else {
-				return false;
-			}
+			
+			} 
 		return true;
 	}
+	
+	public function afterSave($insert, $changedAttributes)
+		{
+		 parent::afterSave($insert, $changedAttributes);
+		 echo 'Worked!';
+		}/*
+	public function afterSave ( $insert, $changedAttributes )
+	{
+		if (!parent::afterSave($insert, $changedAttributes)) {
+			return false;
+		}
+		if(!$insert) {
+			echo 'Worked';
+			//unlink(Yii::getAlias('@app/uploads/products/'.$changedAttributes['img']));
+			//print_r($changedAttributes);
+			return true;
+		}
+		return false;
+	}*/
 	
 }

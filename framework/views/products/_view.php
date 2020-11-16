@@ -6,7 +6,7 @@ use yii\helpers\HtmlPurifier;
 
 <div class="items-view">
     
-	<div class ="items-img">'.Html::img("uploads/products/".$model->img).'</div>
+	<div class ="items-img">'.Html::img("@web/uploads/products/".$model->img).'</div>
 	<div class ="items-title">'.Html::encode($model->title).'</div>
 	<div class ="items-price">Цена: '.$model->price.'</div>
 </div>
