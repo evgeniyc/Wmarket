@@ -126,6 +126,7 @@ a.desc:after {
 	margin: 3px;
 	box-shadow: 0 0 3px black;
 	background-color: #bbc4c4;
+	border: 1px dotted black;
 }
 .items-img img{
 	width: 100%;
@@ -134,7 +135,7 @@ a.desc:after {
 }
 .items-title {
 	font-weight: bold;
-	border: 1px dotted black;
+	
 	box-shadow: 0 0 2px black;
 }
 

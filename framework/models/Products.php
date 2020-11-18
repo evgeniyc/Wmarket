@@ -65,15 +65,15 @@ class Products extends \yii\db\ActiveRecord
 		}
 		$this->imageFile = UploadedFile::getInstance($this, 'imageFile');
 		if (isset($this->imageFile) && $this->validate('imageFile')) {
-				$this->imageFile->saveAs('uploads/products/' . $this->imageFile->baseName . '.' . $this->imageFile->extension);
+				$imgName = uniqid();
+				$imgName = substr($imgName, 6, 7);
+				$imgName = $imgName. '.' . $this->imageFile->extension;
+				$this->imageFile->saveAs('uploads/products/' . $imgName);
 				if (!$insert) {
-					$old_img = $this->img;
-					$this->img = $this->imageFile->baseName . '.' . $this->imageFile->extension;
-					if ($old_img !== $this->img && $old_img != 'nophoto.png' && file_exists("uploads/products/$old_img")  )
-						unlink("uploads/products/$old_img");
+					if (file_exists("uploads/products/$this->img") && $this->img != 'nophoto.png')
+						unlink("uploads/products/$this->img");
 				}
-				
-				$this->img = $this->imageFile->baseName . '.' . $this->imageFile->extension;
+				$this->img = $imgName;
 			} 
 		return true;
 	}

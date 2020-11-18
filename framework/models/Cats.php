@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\web\UploadedFile;
 
 /**
  * This is the model class for table "cats".
@@ -14,7 +15,8 @@ use Yii;
  */
 class Cats extends \yii\db\ActiveRecord
 {
-    /**
+    public $imageFile;
+	/**
      * {@inheritdoc}
      */
     public static function tableName()
@@ -41,9 +43,37 @@ class Cats extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
-            'parent' => 'Parent',
-            'img' => 'Img',
+            'name' => 'Наименование',
+            'parent' => 'Родительская категория',
+            'img' => 'Имя файла',
+			'imageFile' => 'Изображение',
         ];
     }
+	
+	public function beforeSave($insert)
+	{
+		if (!parent::beforeSave($insert)) {
+			return false;
+		}
+		$this->imageFile = UploadedFile::getInstance($this, 'imageFile');
+		if (isset($this->imageFile) && $this->validate('imageFile')) {
+				$imgName = uniqid();
+				$imgName = substr($imgName, 6, 7);
+				$imgName = $imgName. '.' . $this->imageFile->extension;
+				$this->imageFile->saveAs('uploads/cats/' . $imgName);
+				if (!$insert) {
+					if (file_exists("uploads/cats/$this->img") && $this->img != 'nophoto.png')
+						unlink("uploads/cats/$this->img");
+				}
+				$this->img = $imgName;
+			} 
+		return true;
+	}
+	
+	public function afterSave($insert, $changedAttributes)	
+	{
+		 parent::afterSave($insert, $changedAttributes);
+		 echo 'Worked!';
+	}
+	
 }

@@ -5,8 +5,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Cats */
 
-$this->title = 'Create Cats';
-$this->params['breadcrumbs'][] = ['label' => 'Cats', 'url' => ['index']];
+$this->title = 'Создать категорию';
+$this->params['breadcrumbs'][] = ['label' => 'Категории', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="cats-create">
