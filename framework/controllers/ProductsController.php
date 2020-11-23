@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use Yii;
 use app\models\Products;
+use app\models\Cats;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -35,7 +36,11 @@ class ProductsController extends Controller
      */
     public function actionIndex()
     {
-        $dataProvider = new ActiveDataProvider([
+        $this->layout = 'products';
+		Yii::$app->params['catalog'] = new ActiveDataProvider([
+            'query' => Cats::find(),
+        ]);
+		$dataProvider = new ActiveDataProvider([
             'query' => Products::find(),
         ]);
 

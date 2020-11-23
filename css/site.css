@@ -114,6 +114,12 @@ a.desc:after {
     outline: none;
 }
 /*=====================user styles=============================*/
+#main {
+	background-color: #acef9f;
+}
+#main-content {
+	
+}
 .nogutters {
 	margin: 0;
 	padding: 0;
@@ -128,15 +134,16 @@ a.desc:after {
 	background-color: #bbc4c4;
 	border: 1px dotted black;
 }
-.items-img img{
+.items-img img {
 	width: 100%;
 	border-radius: 3px;
 	box-shadow: 0 0 3px black;
 }
 .items-title {
+	height: 2.6em;
 	font-weight: bold;
-	
 	box-shadow: 0 0 2px black;
+	padding-top: 8px;
 }
 
 .items-price {

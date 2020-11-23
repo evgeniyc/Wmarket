@@ -15,6 +15,7 @@ $this->title = 'Категории';
 
     <?= ListView::widget([
         'dataProvider' => $dataProvider,
+		'layout' => '{items}',
         'itemOptions' => ['class' => 'nogutters col-xs-6 col-sm-4 col-md-3 col-lg-2'],
         'itemView' => '_view',
     ]) ?>
